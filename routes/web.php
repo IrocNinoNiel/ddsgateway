@@ -20,7 +20,7 @@ $router->get('/', function () use ($router) {
 // Site1
 $router->get('/users1','User1Controller@getUsers');
 $router->get('/users1/{id}','User1Controller@getUser');
-$router->put('/users1/update{id}','User1Controller@updateUser');
+$router->put('/users1/update/{id}','User1Controller@updateUser');
 $router->delete('/users1/delete/{id}','User1Controller@deleteUser');
 $router->post('/users1/add','User1Controller@addUser');
 
