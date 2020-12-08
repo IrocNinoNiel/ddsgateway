@@ -10,8 +10,11 @@
          */
         public $baseUri;
 
+        public $secret;
+
         public function __construct(){
             $this->baseUri = config('services.users1.base_uri');
+            $this->secret = config('services.users1.secret');
         }
 
         public function obtainUsers1(){
@@ -33,6 +36,12 @@
 
         public function addUser1($data){
             return $this->performRequest('POST',"/api/users/add", $data);
+        }
+
+        public function findJobId($id){
+        
+            return $this->performRequest('GET',"/api/userjob/${id}");
+           
         }
 
     }

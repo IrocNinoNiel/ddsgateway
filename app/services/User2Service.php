@@ -9,9 +9,11 @@
          * @var string
          */
         public $baseUri;
+        public $secret;
 
         public function __construct(){
             $this->baseUri = config('services.users2.base_uri');
+            $this->secret = config('services.users2.secret');
         }
 
         public function obtainUsers2(){
@@ -32,5 +34,11 @@
 
         public function addUser2($data){
             return $this->performRequest('POST',"/api/users/add", $data);
+        }
+
+        public function findJobId($id){
+        
+            return $this->performRequest('GET',"/api/userjob/${id}");
+           
         }
     }
